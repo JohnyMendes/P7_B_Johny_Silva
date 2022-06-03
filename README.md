@@ -93,7 +93,7 @@ Primeramente, se usará 3 librerías. También se tendrá que definir los difere
 ```
 Luego, se declarará una variable del tipo Audio donde se guardará el sonido y sus caracterísiticas. 
 
-**Setup:**se inicia el puerto serie y se realiza la conexión entre el lector de tarjetas y el bus SPI. Finalmente, se configura la variable Audio en la se debe asignar los pines del bus I2C, ajustar el volumen pertinente y leer el archivo desde el file source.
+**Setup:** se inicia el puerto serie y se realiza la conexión entre el lector de tarjetas y el bus SPI. Finalmente, se configura la variable Audio en la se debe asignar los pines del bus I2C, ajustar el volumen pertinente y leer el archivo desde el file source.
 
 ```cpp
 Audio audio;
