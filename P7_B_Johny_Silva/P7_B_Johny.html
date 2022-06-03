@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>P7_B_Johny.MD</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="johny-silva-mendes">Johny Silva Mendes</h1>
+<h1 id="practica-7--buses-de-comunicaci%C3%B3n-iii-i2s">PRACTICA 7  : Buses de comunicación III (I2S)</h1>
+<h2 id="ejercicio-practico-2-reproducir-un-archivo-wave-en-esp32-desde-una-tarjeta-sd-externa">Ejercicio Practico 2 reproducir un archivo WAVE en ESP32 desde una tarjeta SD externa</h2>
+<h3 id="c%C3%B3digo-del-programa">Código del programa</h3>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Audio.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"SD.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"FS.h"</span></span>
+
+<span class="hljs-comment">// Digital I/O used</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SD_CS          5</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SPI_MOSI      23</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SPI_MISO      19</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SPI_SCK       18</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_DOUT      25</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_BCLK      27</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_LRC       26</span>
+
+Audio audio;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span></span>{
+
+    Serial.begin(<span class="hljs-number">115200</span>);
+
+    pinMode(SD_CS, OUTPUT);
+    digitalWrite(SD_CS, HIGH);
+    SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI);
+    SD.begin(SD_CS);
+    audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT);
+    audio.setVolume(<span class="hljs-number">15</span>); <span class="hljs-comment">// 0...21</span>
+    audio.connecttoFS(SD, <span class="hljs-string">"Ensoniq-ZR-76-01-Dope-77.wav"</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span></span>{
+    audio.loop();
+}
+
+<span class="hljs-comment">// optional</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_info</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{
+    Serial.print(<span class="hljs-string">"info        "</span>); Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_id3data</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{  <span class="hljs-comment">//id3 metadata</span>
+    Serial.print(<span class="hljs-string">"id3data     "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_eof_mp3</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{  <span class="hljs-comment">//end of file</span>
+    Serial.print(<span class="hljs-string">"eof_mp3     "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_showstation</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{
+    Serial.print(<span class="hljs-string">"station     "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_showstreaminfo</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{
+    Serial.print(<span class="hljs-string">"streaminfo  "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_showstreamtitle</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{
+    Serial.print(<span class="hljs-string">"streamtitle "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_bitrate</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{
+    Serial.print(<span class="hljs-string">"bitrate     "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_commercial</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{  <span class="hljs-comment">//duration in sec</span>
+    Serial.print(<span class="hljs-string">"commercial  "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_icyurl</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{  <span class="hljs-comment">//homepage</span>
+    Serial.print(<span class="hljs-string">"icyurl      "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_lasthost</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{  <span class="hljs-comment">//stream URL played</span>
+    Serial.print(<span class="hljs-string">"lasthost    "</span>);Serial.println(info);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">audio_eof_speech</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *info)</span></span>{
+    Serial.print(<span class="hljs-string">"eof_speech  "</span>);Serial.println(info);
+}
+</div></code></pre>
+<h3 id="funcionamiento">Funcionamiento</h3>
+<p>Primeramente, se usará 3 librerías. También se tendrá que definir los diferentes puertos que se usarán para la recepción y transmisión de datos. Los pines SPI_MOSI,SPI_MISO,SPI_SCK y SPI_CS són los de la tarjeta SD.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Audio.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"SD.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"FS.h"</span></span>
+
+<span class="hljs-comment">// Digital I/O used</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SD_CS          5</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SPI_MOSI      23</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SPI_MISO      19</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SPI_SCK       18</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_DOUT      25</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_BCLK      27</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_LRC       26</span>
+</div></code></pre>
+<p>Luego, se declarará una variable del tipo Audio donde se guardará el sonido y sus caracterísiticas.</p>
+<p><strong>Setup:</strong> se inicia el puerto serie y se realiza la conexión entre el lector de tarjetas y el bus SPI. Finalmente, se configura la variable Audio en la se debe asignar los pines del bus I2C, ajustar el volumen pertinente y leer el archivo desde el file source.</p>
+<pre class="hljs"><code><div>Audio audio;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span></span>{
+
+    Serial.begin(<span class="hljs-number">115200</span>);
+
+    pinMode(SD_CS, OUTPUT);
+    digitalWrite(SD_CS, HIGH);
+    SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI);
+    SD.begin(SD_CS);
+    audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT);
+    audio.setVolume(<span class="hljs-number">15</span>); <span class="hljs-comment">// 0...21</span>
+    audio.connecttoFS(SD, <span class="hljs-string">"Ensoniq-ZR-76-01-Dope-77.wav"</span>);
+}
+</div></code></pre>
+<p><strong>Loop:</strong> función necesaria para reproducir el audio</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span></span>{
+    audio.loop();
+}
+</div></code></pre>
+<h3 id="salida-por-terminal">Salida por Terminal</h3>
+<p>Para el montaje de esta practica mi compañero y yo no hemos podido llevarlo a cabo porque no disponiamos del material necesario y no pudimos utilizar el material de otros compañeros.</p>
+
+</body>
+</html>
